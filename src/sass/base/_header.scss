@@ -1,0 +1,226 @@
+//header
+
+header {
+  width: 100%;
+  height: 90px;
+  background: $deepColor;
+  position: fixed;
+  top: 0;
+  box-shadow: 0 1px 15px $shadowColor;
+  z-index: 9999;
+}
+
+.headerCol {
+  width: 1300px;
+  margin: 0 auto;
+  & > div {
+    float: left;
+    padding: 10px;
+    &:last-child {
+      float: right;
+    }
+  }
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.logo {
+  display: inline-block;
+  height: 70px;
+  overflow: hidden;
+  img {
+    height: 70px;
+    width: auto;
+  }
+  & + span {
+    display: inline-block;
+    font-size: $fontS;
+    color: $textColor;
+    vertical-align: top;
+    padding-top: 30px;
+  }
+}
+
+//nav
+
+nav {
+  padding: 0 0 0 30px;
+  ul.navBar {
+    .dropDown {
+      i {
+        padding-left: 5px;
+      }
+    }
+    & > li {
+      display: inline-block;
+      width: 100px;
+      height: 70px;
+      text-align: center;
+      position: relative;
+      &::after {
+        content: '';
+        display: inherit;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        height: $fontS;
+        width: 1px;
+        background: $textColor;
+      }
+      &:last-child::after {
+        display: none;
+      }
+      &:first-child > a::before {
+        content: '\E004';
+      }
+      &:nth-child(2) > a::before {
+        content: '\E001';
+      }
+      &:nth-child(3) > a::before {
+        content: '\E005';
+      }
+      &:nth-child(4) > a::before {
+        content: '\E013';
+      }
+      &:nth-child(5) > a::before {
+        content: '\E011';
+      }
+      & > a {
+        display: inherit;
+        text-decoration: none;
+        font-size: $fontS;
+        color: $textColor;
+        transition: color .3s ease;
+        perspective: 120px;
+        transform-style: preserve-3d;
+        &:hover {
+          color: $mainColor;
+          &::before {
+            color: inherit;
+            transform: rotateY(-360deg);
+          }
+        }
+        &::before {
+          @include iconFont;
+          display: block;
+          margin: 8px auto 10px;
+          color: $deepColor;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: #ddd;
+          text-align: center;
+          line-height: 2;
+          transition: transform .6s ease;
+        }
+      }
+      ul.dropDownMenu {
+        position: absolute;
+        top: 70px;
+        left: -20px;
+        display: none;
+        box-shadow: 0 1px 15px $shadowColor;
+        border-top: 1px solid white;
+        li:first-child > a::before {
+          content: '\E010';
+        }
+        li:nth-child(2) > a::before {
+          content: '\E003';
+        }
+        li:nth-child(3) > a::before {
+          content: '\E009';
+        }
+        li:nth-child(4) > a::before {
+          content: '\E00B';
+        }
+        li:nth-child(5) > a::before {
+          content: '\E00A';
+        }
+        li:nth-child(6) > a::before {
+          content: '\E008';
+        }
+        a {
+          background: $deepColorT;
+          width: 140px;
+          padding: 10px;
+          display: block;
+          color: $textColor;
+          text-decoration: none;
+          text-align: left;
+          transition: all .3s ease;
+          &::before {
+            @include iconFont;
+            padding-right: 5px;
+          }
+          &:hover {
+            background: $mainColor;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.navRight {
+  li {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    &:first-child {
+      padding-right: 30px;
+      a {
+        text-decoration: underline;
+        vertical-align: middle;
+        padding-right: 5px;
+      }
+      img {
+        vertical-align: middle;
+      }
+    }
+    &:nth-child(2) {
+      padding-right: 5px;
+      border-right: 1px solid $textColor;
+    }
+    &:last-child {
+      margin-left: 10px;
+      a {
+        display: block;
+        width: 24px;
+        height: 24px;
+        padding: 4px;
+        background: $facebookColor;
+        color: white;
+        font-size: $fontS;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+#search {
+  border: 1px solid #888;
+  width: 250px;
+  height: 35px;
+  padding: 5px 50px 5px 15px;
+  background: transparent;
+  border-radius: 35px;
+  outline: none;
+  color: white;
+  margin: 10px 0 0 -10px;
+  position: relative;
+  transition: border-color .3s ease;
+  & + label {
+    position: relative;
+    top: 3px;
+    right: 40px;
+    font-size: 22px;
+    color: $textColor;
+  }
+  &:focus {
+    border-color: lighten(#888, 20%);
+  }
+}

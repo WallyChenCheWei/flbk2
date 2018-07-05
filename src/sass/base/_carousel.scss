@@ -1,0 +1,125 @@
+//carousel
+
+.carousel {
+  width: 100%;
+  min-width: 1200px;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid white;
+  height: 360px;
+  background: $deepColorT;
+  perspective: 900px;
+  transform-style: preserve-3d;
+  .items {
+    .item {
+      width: 100vw;
+      position: absolute;
+      transform: scale(.9);
+      opacity: 0;
+      transition: all .3s linear;
+      &.active {
+        z-index: 10;
+        left: 0;
+        top: 0;
+        opacity: 1;
+        transform: scale(1);
+        transition: all 2s ease;
+      }
+      &.inactiveTop {
+        top: -100%;
+        z-index: 11;
+      }
+      &.inactiveDown {
+        top: 100%;
+        z-index: 11;
+      }
+      img {
+        display: block;
+        width: inherit;
+        height: auto;
+      }
+      &:first-child .desc {
+        display: block;
+      }
+      .desc {
+        display: none;
+        box-sizing: border-box;
+        width: $width;
+        background: $deepColorT;
+        position: absolute;
+        z-index: 12;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50.5%);
+        padding: 22px 28px;
+        h1 {
+          max-width: ($width - 750px);
+          display: inline-block;
+          font-size: $fontXXL;
+          color: white;
+          font-weight: 700;
+          padding-right: 15px;
+          vertical-align: middle;
+        }
+        p {
+          max-width: 750px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: inline-block;
+          font-size: $fontS;
+          color: $textColor;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .controlBtn {
+    position: absolute;
+    right: 20%;
+    bottom: 120px;
+    z-index: 9999;
+  }
+  .dotWrap {
+    position: absolute;
+    right: 20%;
+    bottom: 90px;
+    z-index: 9999;
+    width: 140px;
+    text-align: center;
+    li {
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 8px;
+      transition: background .3s ease;
+      &:hover {
+        border: 2px solid $mainColor;
+        background: transparent;
+      }
+      &.active {
+        background: $mainColor;
+      }
+    }
+  }
+}
+
+.prev, .next {
+  $hoverBg: hsla(0, 0%, 100%, .9);
+  background: $mainColorT;
+  border-radius: 10px;
+  width: 70px;
+  font-size: 32px;
+  &:hover:enabled, &:focus{
+    background-color: $hoverBg;
+    color: $mainColor;
+    border-color: $hoverBg;
+  }
+  &:active:enabled{
+    color: $mainColor;
+    border-color: $hoverBg;
+  }
+}
+

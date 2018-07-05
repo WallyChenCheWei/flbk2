@@ -1,0 +1,156 @@
+//content
+
+.contentWrapper {
+  width: 100%;
+  background: linear-gradient($backgroundColor 30%, $backgroundColor2 40%, $backgroundColor);
+  margin-top: 90px;
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  width: $width;
+  margin: 0 auto;
+  padding: 30px 0;
+  overflow: hidden;
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #ccc;
+    position: absolute;
+    bottom: 0;
+    border-bottom: 1px solid white;
+  }
+}
+
+.contentTop {
+  & > div {
+    float: left;
+    &:first-child {
+      @include block;
+      width: 710px;
+      margin-right: 25px;
+      height: 585px;
+    }
+    &:nth-child(2) {
+      @include block;
+      width: ($width - (710px + 25px));
+      height: 585px;
+    }
+    &:last-child {
+      margin-top: 15px;
+      & > div{
+        @include grid(4, 15px);
+        @include block;
+        height: 270px;
+      }
+    }
+  }
+  & > h1 {
+    float: left;
+    margin-top: 30px;
+  }
+}
+
+.contentMiddle {
+  & > div {
+    @include grid(2, 20px);
+  }
+}
+
+.blockLeft {
+  $marginWidth: 15px;
+  & > div {
+    float: left;
+    @include block;
+    margin: $marginWidth $marginWidth 0 0;
+    &:first-of-type {
+      width: 100%;
+      height: 650px;
+    }
+    &:nth-of-type(2), &:last-of-type{
+      width: calc(50% - 7.5px);
+      height: 420px;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.blockRight {
+  .tabContent {
+    background: white;
+    border: 1px solid $borderColor;
+    float: left;
+    width: inherit;
+    height: (180px * 6);
+    overflow: hidden;
+    position: relative;
+    .tabItems {
+      position: absolute;
+      top: 0;
+      left: 0;
+      .tabItem {
+        float: left;
+        width: 590px;
+        & > div {
+          @include block;
+          height: 180px;
+          padding: 16px 10px;
+          border: none;
+          position: relative;
+          &::before {
+            content: '';
+            display: block;
+            width: calc(100% - 20px);
+            height: 1px;
+            background: $borderColor;
+            position: absolute;
+            left: 10px;
+            bottom: 0;
+            z-index: 3;
+          }
+          &:last-child::before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tab {
+  width: 50%;
+  float: left;
+  position: relative;
+  color: $textColor;
+  cursor: pointer;
+  transition: color .6s ease;
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    background: $textColor;
+    margin-top: 15px;
+    transition: background .6s ease;
+  }
+  &.active {
+    color: $mainColor;
+    &::after {
+      background: $mainColor;
+    }
+  }
+}
+
+.contentBottom {
+  & > div {
+    @include grid(3, 15px);
+    @include block;
+    height: 960px;
+  }
+}

@@ -1,0 +1,114 @@
+//icon font
+@font-face {
+  font-family: "flbkfont";
+  src: url('../font/flbkfont.eot');
+  src: url('../font/flbkfont.eot?#iefix') format('eot'),
+  url('../font/flbkfont.woff2') format('woff2'),
+  url('../font/flbkfont.woff') format('woff'),
+  url('../font/flbkfont.ttf') format('truetype'),
+  url('../font/flbkfont.svg#flbkfont') format('svg');
+}
+
+.flbk:before {
+  font-family: "flbkfont";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+  text-decoration: none;
+  text-transform: none;
+}
+
+.flbk-attractions:before {
+  content: "\E001";
+}
+
+.flbk-author:before {
+  content: "\E002";
+}
+
+.flbk-bags:before {
+  content: "\E003";
+}
+
+.flbk-book:before {
+  content: "\E004";
+}
+
+.flbk-coffee:before {
+  content: "\E005";
+}
+
+.flbk-eye:before {
+  content: "\E006";
+}
+
+.flbk-fb:before {
+  content: "\E007";
+}
+
+.flbk-flag:before {
+  content: "\E008";
+}
+
+.flbk-food:before {
+  content: "\E009";
+}
+
+.flbk-foot:before {
+  content: "\E00A";
+}
+
+.flbk-house:before {
+  content: "\E00B";
+}
+
+.flbk-ig:before {
+  content: "\E00C";
+}
+
+.flbk-magnifier:before {
+  content: "\E00D";
+}
+
+.flbk-more:before {
+  content: "\E00E";
+}
+
+.flbk-new:before {
+  content: "\E00F";
+}
+
+.flbk-news:before {
+  content: "\E010";
+}
+
+.flbk-path:before {
+  content: "\E011";
+}
+
+.flbk-phone:before {
+  content: "\E012";
+}
+
+.flbk-room:before {
+  content: "\E013";
+}
+
+.flbk-today:before {
+  content: "\E014";
+}
+
+.flbk-week:before {
+  content: "\E015";
+}
+
+.flbk-youtube:before {
+  content: "\E016";
+}
+
+.flbk-index.html:before {
+  content: "\E017";
+}

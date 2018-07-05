@@ -1,0 +1,228 @@
+//common
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: $textColor;
+  text-decoration: none;
+  transition: color .3s ease;
+  &:hover {
+    color: white;
+  }
+}
+
+.btn {
+  @include btn;
+}
+
+.imgFrame {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .2);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-clip: content-box;
+    transition: background .6s;
+  }
+  &:hover::after {
+    background: transparent;
+  }
+  &.heightXL {
+    height: 325px;
+  }
+  &.heightL {
+    height: 245px;
+  }
+  &.heightM {
+    height: 185px;
+  }
+  &.heightS {
+    height: 140px;
+  }
+  &:hover {
+    img {
+      transform: scale(1.02);
+    }
+  }
+  img {
+    width: 110%;
+    height: auto;
+    transition: transform .3s;
+  }
+  .tag {
+    display: block;
+    width: 122px;
+    height: 40px;
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    padding: 10px 15px;
+    background: linear-gradient($mainColor , lighten($mainColor, 5%));
+    color: white;
+    box-shadow: 0 0 0 1px $mainColor;
+    font-size: $fontS;
+    text-decoration: none;
+    border-radius: 40px;
+    z-index: 3;
+    transition: .3s ease;
+    &::before {
+      @include iconFont;
+      padding-right: 5px;
+    }
+    &.flag::before {
+      content: "\E008";
+    }
+    &.footprint::before {
+      content: "\E00A";
+    }
+    &.bags::before {
+      content: "\E003";
+    }
+    &.food::before {
+      content: "\E009";
+    }
+    &.house::before {
+      content: "\E00B";
+    }
+    &:hover {
+      box-shadow: 0 0 0 3px hsla(0, 0%, 100%, .5);
+    }
+  }
+  &.alignLeft {
+    float: left;
+    width: 40%;
+    height: 140px;
+    margin-top: 10px;
+    span {
+      position: absolute;
+      color: white;
+      font-size: $fontS;
+      background: $mainColor;
+      width: 28px;
+      height: 28px;
+      text-align: center;
+      line-height: 28px;
+      border-radius: 50%;
+      top: 10px;
+      left: 10px;
+      z-index: 3;
+    }
+    & + div {
+      width: 60%;
+      float: left;
+    }
+  }
+}
+
+.title {
+  display: block;
+  text-decoration: none;
+  font-size: $fontXL;
+  color: $titleColor;
+  padding: 20px 15px 15px 15px;
+  line-height: 1.2;
+}
+
+.titleS {
+  display: block;
+  text-decoration: none;
+  font-size: $fontM;
+  color: $titleColor;
+  font-weight: 600;
+  padding: 8px 15px;
+  line-height: 1.5;
+}
+
+.link {
+  &:hover {
+    transition: color .3s ease;
+    color: $mainColor;
+  }
+}
+
+.info {
+  padding: 0 18px;
+  color: $textColor;
+  font-size: $fontXS;
+  span {
+    padding-right: 10px;
+  }
+  .author::before {
+    @include iconFont;
+    content: '\E002';
+  }
+  .attention::before {
+    @include iconFont;
+    content: '\E006';
+  }
+}
+
+.article {
+  font-size: $fontS;
+  color: $textColor;
+  line-height: 1.5;
+  padding: 10px 15px;
+  &.underLine {
+    border-bottom: 1px solid $borderColor;
+  }
+}
+
+.topic {
+  font-size: $fontXL;
+  color: $mainColor;
+  margin-top: -10px;
+  &::before {
+    @include iconFont;
+  }
+  &.more::before {
+    content: '\E00E';
+  }
+  &.new::before {
+    content: '\E00F';
+  }
+  &.today::before {
+    content: '\E014';
+  }
+  &.week::before {
+    content: '\E015';
+  }
+}
+
+.play {
+  color: $labelBlue;
+}
+
+.live {
+  color: $labelGreen;
+}
+
+.eat {
+  color: $labelRed;
+}
+
+.readMore {
+  background: $moreBtnColor;
+  border-radius: 40px;
+  padding: 10px 40px;
+  position: relative;
+  margin-top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  &:hover:enabled, &:focus{
+    background-color: darken($moreBtnColor, 10%);
+    color: white;
+    border-color: darken($moreBtnColor, 10%);
+  }
+  &:active:enabled{
+    color: white;
+    border-color: darken($moreBtnColor, 10%);
+  }
+}
